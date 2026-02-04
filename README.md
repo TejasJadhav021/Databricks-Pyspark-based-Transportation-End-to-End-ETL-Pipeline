@@ -1,140 +1,69 @@
-Transportation End-to-End ETL Pipeline using Databricks & PySpark
-📌 Project Overview
+# 🚕 Transportation End-to-End ETL Pipeline (Databricks + PySpark)
 
-This project implements a scalable end-to-end Transportation ETL pipeline using Databricks, PySpark, Delta Live Tables (DLT), Delta Lake, and Amazon S3.
-The pipeline ingests raw transportation data, processes it through Bronze–Silver–Gold (Medallion Architecture) layers, and produces analytics-ready datasets for reporting and business insights.
+## 📌 Project Overview
+This project implements a **scalable end-to-end Transportation ETL pipeline** using **Databricks, PySpark, Delta Live Tables (DLT), Delta Lake, and Amazon S3**.  
+The pipeline ingests raw transportation data, processes it through **Bronze–Silver–Gold (Medallion Architecture)** layers, and produces **analytics-ready datasets** for reporting and business insights.
 
-The solution demonstrates modern data engineering best practices, including incremental ingestion, data quality validation, CDC-based upserts, and optimized cloud storage.
+---
 
-🎯 Business Problem
-
-Transportation companies generate large volumes of data from multiple sources such as trips, cities, passengers, and dates.
+## 🎯 Business Problem
+Transportation companies generate **large volumes of data** from multiple sources such as trips, cities, and dates.  
 However:
+- Data is often **raw and inconsistent**
+- Traditional systems **do not scale efficiently**
+- Poor data quality leads to **unreliable analytics**
 
-Data is often raw, inconsistent, and unstructured
+This project solves the problem by building a **scalable and automated ETL pipeline** that converts raw data into **clean, trusted, analytics-ready datasets**.
 
-Traditional systems do not scale well
+---
 
-Poor data quality leads to unreliable analytics
+## 🏗️ Architecture (Medallion Architecture)
 
-This project solves the problem by building a scalable, automated ETL pipeline that converts raw data into clean, trusted, analytics-ready datasets.
+- **Bronze Layer**
+  - Raw data ingestion from Amazon S3
+  - Schema-flexible and fault-tolerant
+  - Corrupt records captured without failing the pipeline
 
-🏗️ Architecture Overview
+- **Silver Layer**
+  - Cleaned, standardized, and validated data
+  - Data quality checks using DLT expectations
+  - CDC-based upserts to keep latest records
 
-The project follows the Medallion Architecture:
+- **Gold Layer**
+  - Business-friendly, analytics-ready views
+  - Optimized for reporting and dashboards
 
-Bronze Layer – Raw data ingestion from Amazon S3 (fault-tolerant, schema-flexible)
+---
 
-Silver Layer – Cleaned, validated, standardized data with CDC upserts
+## 🧰 Technologies Used
+- Databricks
+- Apache Spark (PySpark)
+- Delta Live Tables (DLT)
+- Delta Lake
+- Amazon S3
+- AWS IAM
+- SQL
 
-Gold Layer – Business-friendly, analytics-ready views for reporting
+---
 
-All layers are implemented using Delta Live Tables and stored as Delta tables on Amazon S3.
+## 🔄 Data Pipeline Flow
+1. Raw transportation data is ingested from **Amazon S3** into the **Bronze layer**
+2. Corrupt and malformed records are captured safely
+3. Data is cleaned, validated, and standardized in the **Silver layer**
+4. **CDC (Change Data Capture)** is used to upsert latest records
+5. **Gold views** are created for analytics and reporting
 
-🧰 Technologies Used
+---
 
-Databricks
+## 📊 Key Features
+- Incremental data ingestion
+- Schema evolution support
+- Data quality validation using DLT expectations
+- CDC-based upserts (SCD Type 1)
+- Auto-optimized Delta tables
+- Analytics-ready Gold views
+- Scalable cloud-based design
 
-Apache Spark (PySpark)
+---
 
-Delta Live Tables (DLT)
-
-Delta Lake
-
-Amazon S3
-
-AWS IAM
-
-SQL
-
-🔄 Data Pipeline Flow
-
-Raw transportation data is ingested from Amazon S3 into the Bronze layer
-
-Corrupt records are captured without failing the pipeline
-
-Data is cleaned, standardized, and validated in the Silver layer
-
-CDC (Change Data Capture) is used to upsert latest records
-
-Gold views are created by joining Silver tables for analytics
-
-📊 Key Features
-
-Incremental data ingestion
-
-Schema evolution support
-
-Data quality checks using DLT expectations
-
-CDC-based upserts (SCD Type 1)
-
-Auto-optimized Delta tables
-
-Analytics-ready Gold views
-
-Scalable cloud-based architecture
-
-📁 Project Structure
-├── bronze/
-│   ├── city_bronze.py
-│   ├── trips_bronze.py
-│
-├── silver/
-│   ├── city_silver.py
-│   ├── trips_silver_cdc.py
-│   ├── calendar_silver.py
-│
-├── gold/
-│   ├── fact_trips_view.sql
-│
-├── README.md
-
-🧪 Example Analytics Use Cases
-
-Average passenger and driver ratings
-
-Trips by city and date
-
-Weekend vs weekday trip analysis
-
-Holiday-based demand analysis
-
-Monthly and quarterly revenue trends
-
-🚀 How to Run the Project
-
-Create a Databricks workspace on AWS
-
-Configure access to Amazon S3 using IAM roles
-
-Create a Delta Live Tables pipeline
-
-Add Bronze, Silver, and Gold notebooks
-
-Provide pipeline parameters (e.g., start_date, end_date)
-
-Run the pipeline
-
-🔮 Future Enhancements
-
-Real-time streaming ingestion
-
-BI dashboards using Power BI / QuickSight
-
-Advanced analytics and ML integration
-
-SCD Type 2 for historical tracking
-
-Enhanced data governance and lineage
-
-📌 Conclusion
-
-This project demonstrates a production-style data engineering pipeline using Databricks and Delta Live Tables.
-It showcases how raw transportation data can be transformed into reliable, analytics-ready datasets using modern lakehouse architecture and cloud-native tools.
-
-👤 Author
-
-Tejas Jadhav
-Software Engineer | Aspiring Data Engineer
-Skills: Databricks, PySpark, Delta Lake, AWS, SQL
+## 📁 Project Structure
