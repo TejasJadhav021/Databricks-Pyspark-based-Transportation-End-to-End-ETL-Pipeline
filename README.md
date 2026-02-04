@@ -65,18 +65,19 @@ This project solves the problem by building a **scalable and automated ETL pipel
 - Scalable cloud-based design
 
 ---
-
 ## 📁 Project Structure
+
+```text
 ├── bronze/
-│ ├── city_bronze.py
-│ ├── trips_bronze.py
+│   ├── city_bronze.py
+│   ├── trips_bronze.py
 │
 ├── silver/
-│ ├── city_silver.py
-│ ├── trips_silver_cdc.py
-│ ├── calendar_silver.py
+│   ├── city_silver.py
+│   ├── trips_silver_cdc.py
+│   ├── calendar_silver.py
 │
 ├── gold/
-│ ├── fact_trips_view.sql
+│   ├── fact_trips_view.sql
 │
 ├── README.md
